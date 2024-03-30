@@ -21,5 +21,7 @@ Now statefile will be created ,stored on s3 and vpc will be created
 ![Image Alt Text](screenshots/cluster-vpc.png)
 
 
+https://alex.dzyoba.com/blog/terraform-ansible/
+
 
 
