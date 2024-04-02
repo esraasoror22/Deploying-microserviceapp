@@ -21,7 +21,14 @@ Now statefile will be created ,stored on s3 and vpc will be created
 ![Image Alt Text](screenshots/cluster-vpc.png)
 
 
+4) Create Security group for public instances
+![Image Alt Text](screenshots/public_ec2_SG.png)
+
+5) create public-instances
+![Image Alt Text](screenshots/public-instances.png)
+
 https://alex.dzyoba.com/blog/terraform-ansible/
+
 
 
 

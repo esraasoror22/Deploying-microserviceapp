@@ -9,3 +9,16 @@ module "networking" {
     private_subnet_cidr = ["10.6.128.0/19", "10.6.160.0/20", "10.6.176.0/21"]
     private_subnet_names = ["cluster-private-subnet-a","cluster-private-subnet-b","cluster-private-subnet-c"]
 }
+
+module "seurity" {
+    source = "./modules/security-Group"
+    vpc_id = module.networking.vpc_id
+
+}
+module "ec2_instances" {
+
+    source = "./modules/Ec2"
+    pub_ec2_names = ["Bastion_host","traefik-server"]
+    public_ec2_subnets = [module.networking.pub_subnets_id[0],module.networking.pub_subnets_id[2]]
+    sgg = [module.seurity.public_ecs_security]
+}
