@@ -13,6 +13,7 @@ module "networking" {
 module "seurity" {
     source = "./modules/security-Group"
     vpc_id = module.networking.vpc_id
+    vpc_cidr = module.networking.vpc_cidr
 
 }
 module "ec2_instances" {
@@ -21,4 +22,8 @@ module "ec2_instances" {
     pub_ec2_names = ["Bastion_host","traefik-server"]
     public_ec2_subnets = [module.networking.pub_subnets_id[0],module.networking.pub_subnets_id[2]]
     sgg = [module.seurity.public_ecs_security]
+    private_ec2_subnets = module.networking.private_subnets_ids
+    private_ec2_SG = [module.seurity.private_ec2_Security]
+    private_ec2_names = ["Jenkins_server","Dev","Test"]
 }
+

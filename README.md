@@ -27,6 +27,25 @@ Now statefile will be created ,stored on s3 and vpc will be created
 5) create public-instances
 ![Image Alt Text](screenshots/public-instances.png)
 
+6) Create 3 private instances 
+  a) server that has minikube and jenkins running on it
+  b) dev server has node js
+  c) server has mysql
+Please note the selected instances are private instances
+![Image Alt Text](screenshots/private-ec2.png)
+
+7) ssh to Jenkins_server through bastion host and do the following
+    a) install minikube && start it
+    ![Image Alt Text](screenshots/start-minikube.png)
+    b)check status of minikube and get nodes on cluster
+    ![Image Alt Text](screenshots/minikube-status.png)
+    c) create 3 namespaces (build,dev,test)
+    ![Image Alt Text](screenshots/create-3-namespaces.png)
+    d) list available namespaces on cluster
+    ![Image Alt Text](screenshots/list-available-ns.png)
+    
+
+
 https://alex.dzyoba.com/blog/terraform-ansible/
 
 

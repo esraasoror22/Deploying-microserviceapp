@@ -27,7 +27,7 @@ resource "aws_key_pair" "example_key_pair" {
 
 
 
-
+#create public instances
 resource "aws_instance" "Public_instances" {
   count = 2
   ami  = "ami-0b8b44ec9a8f90422"
@@ -38,4 +38,20 @@ resource "aws_instance" "Public_instances" {
   tags = {
     Name = var.pub_ec2_names[count.index]
   }
+
+}
+
+
+#create private instances
+resource "aws_instance" "Private_instances" {
+  count = 3
+  ami  = "ami-0b8b44ec9a8f90422"
+  instance_type = "t3.micro"
+  key_name = aws_key_pair.example_key_pair.key_name
+  subnet_id = var.private_ec2_subnets[count.index]
+  vpc_security_group_ids = var.private_ec2_SG
+  tags = {
+    Name = var.private_ec2_names[count.index]
+  }
+  
 }

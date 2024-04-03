@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-pod
+  namespace: build
+  labels:
+    tag: development
+spec:
+  containers:
+    - name: c1
+      image: jenkins/jenkins:lts-jdk17
+      ports:
+        - containerPort: 8080
+        - containerPort: 5000
